@@ -37,7 +37,7 @@ public class Exercise23_01 {
     //   - Place currentElement at list[k + 1]
     // ---------------------------------------------------------------
     public static <E extends Comparable<E>> void insertionSort(E[] list){
-        for (int i = 1; i < list.length - 1; i++){
+        for (int i = 1; i < list.length; i++){
              E currentElement = list[i];
              int k = i - 1;
              while (k >= 0 && list[k].compareTo(currentElement) > 0){
@@ -58,7 +58,7 @@ public class Exercise23_01 {
     // Same logic as TODO 1, but replace compareTo() with comparator.compare()
     // ---------------------------------------------------------------
     public static <E> void insertionSort(E[] list, Comparator<? super E> comparator){
-        for (int i = 1; i < list.length - 1; i++){
+        for (int i = 1; i < list.length; i++){
             E currentElement = list[i];
             int k = i - 1;
             while (k >= 0 && comparator.compare(list[k],currentElement) > 0){
@@ -84,7 +84,7 @@ public class Exercise23_01 {
     // ---------------------------------------------------------------
     public static <E extends Comparable<E>> void bubbleSort(E[] list){
         boolean needNextPass = true;
-        for (int k = 1; k < list.length - 1 && needNextPass; k++){
+        for (int k = 1; k < list.length && needNextPass; k++){
             needNextPass = false;
             for (int i = 0; i < list.length - k; i++){
                 if (list[i].compareTo(list[i + 1]) > 0){
@@ -107,10 +107,10 @@ public class Exercise23_01 {
     // ---------------------------------------------------------------
     public static <E> void bubbleSort(E[] list, Comparator<? super E> comparator){
         boolean needNextPass = true;
-        for (int k = 1; k < list.length - 1 && needNextPass; k++){
+        for (int k = 1; k < list.length && needNextPass; k++) {
             needNextPass = false;
-            for (int i = 0; i < list.length - k; i++){
-                if (comparator.compare(list[i + 1], list[i]) > 0){
+            for (int i = 0; i < list.length - k; i++) {
+                if (comparator.compare(list[i], list[i + 1]) > 0) {
                     E temp = list[i];
                     list[i] = list[i + 1];
                     list[i + 1] = temp;
